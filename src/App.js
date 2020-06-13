@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link, Route } from 'react-router-dom'
 import { Button, Navbar, Card, CardImg } from 'reactstrap';
 import PizzaForm from './Form'
+import SuccessPage from './Success'
 
 const App = () => {
+  const [post, setPost] = useState()
   return (
     <>
     <Navbar color="danger">
@@ -16,9 +18,13 @@ const App = () => {
         <Link to="/pizza"><Button color="primary" style={{position: 'absolute', left: '50%', top: '50%'}}>Pizza here!</Button></Link>
       </Card>
     </Route>
-    <Route path="/pizza">
-      <PizzaForm />
+    <Route exact path="/pizza">
+      <PizzaForm setPost={setPost}/>
     </Route>
+    <Route path="/success">
+        <SuccessPage post={post}/>
+    </Route>
+    
     </>
   );
 };

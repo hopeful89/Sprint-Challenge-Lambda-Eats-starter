@@ -4,7 +4,7 @@ import { Link, Route } from 'react-router-dom'
 import axios from 'axios';
 import * as yup from 'yup'
 
-const PizzaForm = () => {
+const PizzaForm = (props) => {
     const [formData, setFormData] = useState({
         size: 'Small',
         sauce: 'Original Red',
@@ -47,12 +47,13 @@ const PizzaForm = () => {
         formSchema.validate(formData).then(() => {
             axios.post('https://reqres.in/api/users/', formData).then(res => {
                 console.log('this is your submitted data', res.data)
-                // setPost(res.data)
+                props.setPost(res.data)
             })
         }).catch(err => {
             setError({name: err.message})
         })
     }
+
 
     return (
         <>
@@ -177,11 +178,10 @@ const PizzaForm = () => {
                 
             </FormGroup>
             <FormGroup style={{width: '100%'}}>
-                <Button  style={{width: '90%', margin: '0 5%'}}>Submit</Button>
+            <Button style={{width: '90%', margin: '0 5%'}}>Submit</Button>
+                {/* <Link to='/success'></Link> */}
             </FormGroup>
-            {/* <Route path='/sucess'>
-                //add link to button
-            </Route> */}
+
         </Form>
         </>
     )

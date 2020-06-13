@@ -60,7 +60,7 @@ const PizzaForm = () => {
             <h3>Build your own Pizza</h3>
             <CardImg style={{height: '40vh'}} src={require('./Assets/Pizza.jpg')} />
         </Card>
-        <Form onSubmit={(e) => {
+        <Form data-cy="submit" onSubmit={(e) => {
             e.preventDefault();
             handleSubmit();
             }} style={{width: '95%', margin: '0 auto'}}>
@@ -131,7 +131,7 @@ const PizzaForm = () => {
             <FormGroup tag="fieldset">
                 <FormGroup check>
                     <Label check>
-                        <Input type="checkbox" name="pepperoni" checked={formData.pepperoni} onChange={handleChange}/>
+                        <Input type="checkbox" data-cy='pepperoni' name="pepperoni" checked={formData.pepperoni} onChange={handleChange}/>
                         Pepperoni
                     </Label>
                 </FormGroup>
@@ -143,13 +143,13 @@ const PizzaForm = () => {
                 </FormGroup>
                 <FormGroup check>
                     <Label check>
-                        <Input type="checkbox" name="peppers" checked={formData.peppers} onChange={handleChange}/>
+                        <Input type="checkbox" data-cy='peppers' name="peppers" checked={formData.peppers} onChange={handleChange}/>
                         Peppers
                     </Label>
                 </FormGroup>
                 <FormGroup check>
                     <Label check>
-                        <Input type="checkbox" name="onions" checked={formData.onions} onChange={handleChange}/>
+                        <Input type="checkbox" data-cy='onions' name="onions" checked={formData.onions} onChange={handleChange}/>
                         Onions
                     </Label>
                 </FormGroup>
@@ -160,7 +160,7 @@ const PizzaForm = () => {
                 </div>
             </FormGroup>
             <FormGroup>
-            <CustomInput type="switch" id="gluten" name="gluten" label="Gluten Free Crust" onChange={handleChange} checked={formData.gluten}/>
+            <CustomInput type="switch" data-cy='gluten' id="gluten" name="gluten" label="Gluten Free Crust" onChange={handleChange} checked={formData.gluten}/>
             </FormGroup>
             <FormGroup style={{ background: 'slategrey'}}>
                 <div style={{margin: '0 0 0 1%', padding: '.25%'}}>
@@ -172,12 +172,12 @@ const PizzaForm = () => {
                 <Input onChange={handleChange} name="special" placeholder="Anything else you would like to add?"></Input>
             </FormGroup>
             <FormGroup>
-                <Input onChange={handleChange} name="name" placeholder="Please Enter Your Name"></Input>
+                <Input onChange={handleChange} data-cy='name' name="name" placeholder="Please Enter Your Name"></Input>
                 {(error.name.length !== undefined ? <p>{error.name}</p> : undefined)}
                 
             </FormGroup>
             <FormGroup style={{width: '100%'}}>
-                <Button style={{width: '90%', margin: '0 5%'}}>Submit</Button>
+                <Button  style={{width: '90%', margin: '0 5%'}}>Submit</Button>
             </FormGroup>
             {/* <Route path='/sucess'>
                 //add link to button
